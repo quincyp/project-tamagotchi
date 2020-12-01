@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Tamagotchi</title>
 
+    <!-- Skeleton CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" />
+
     <!-- CSS -->
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css" defer>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -15,13 +18,24 @@
     <script src="app.js" defer></script>
 </head>
 <body>
-    <h1>Name</h1>
-    <h2>Age</h2>
-    <ul>
-        <li>Hunger</li>
-        <li>Sleepiness</li>
-        <li>Boredom</li>
-    </ul>
+    <div class="container">
+
+        <div class="row">
+            <h1 class="six columns">Name</h1>
+            <h1 class="six columns">Age</h1>
+        </div>
+
+        <div class="row">
+            <ul>
+                <li>Hunger</li>
+                <li>Sleepiness</li>
+                <li>Boredom</li>
+            </ul>
+
+        </div>
+    </div>
+        
+    
     <div id="pet--area">
         <div id="pet">Test</div>
     </div>

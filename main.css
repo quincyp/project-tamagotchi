@@ -12,8 +12,12 @@ body {
     justify-content: center;
     min-height: 100vh;
     flex-flow: row wrap;
+    flex-direction: column;
+    text-align: center;
 }
 
+
+/* 
 h1, h2, ul {
     padding: 20px;
     margin: 20px;
@@ -22,4 +26,4 @@ h1, h2, ul {
 
 li {
     margin: 20px;
-}
+} */
