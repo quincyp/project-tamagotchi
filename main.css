@@ -9,7 +9,7 @@ body {
     color: whitesmoke;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     min-height: 100vh;
     flex-flow: row wrap;
     flex-direction: column;
@@ -18,6 +18,15 @@ body {
 
 .nes-progress {
     width: 150px;
+}
+
+.nes-octocat {
+    padding: 30px;
+    margin: 130px;
+}
+
+h3 {
+    font-size: 22px;
 }
 
 /* 
