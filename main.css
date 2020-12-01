@@ -16,6 +16,9 @@ body {
     text-align: center;
 }
 
+.nes-progress {
+    width: 150px;
+}
 
 /* 
 h1, h2, ul {

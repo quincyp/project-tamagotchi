@@ -7,7 +7,8 @@
 
     <!-- Skeleton CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" />
-
+    <!-- NES CSS -->
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
     <!-- CSS -->
     <link rel="stylesheet" href="main.css" defer>
 
@@ -18,6 +19,15 @@
     <script src="app.js" defer></script>
 </head>
 <body>
+
+    <!-- Hunger Bar-->
+    <progress class="nes-progress is-success" value="50" max="100"></progress>
+    <!-- Sleep Bar -->
+    <progress class="nes-progress is-warning" value="30" max="100"></progress>
+    <!-- Bored Bar -->
+    <progress class="nes-progress is-error" value="10" max="100"></progress>
+    <i class="nes-octocat animate"></i>
+
     <div class="container">
 
         <div class="row">
