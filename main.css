@@ -15,18 +15,35 @@ body {
     align-items: center;
     /* justify-content: center; */
     min-height: 100vh;
+    min-width: 100vw;
     flex-flow: row wrap;
     flex-direction: column;
     text-align: center;
 }
 
+/* container {
+    min-width: 90vw;
+} */
 .nes-progress {
-    width: 150px;
+    width: 250px;
+    margin: 0 20px;
 }
 
 .nes-octocat {
     padding: 30px;
     margin: 130px;
+}
+
+#button__group {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+}
+
+.nes-btn {
+    width: 250px;
+    margin: 20px;
 }
 
 /* .nes-btn .is-warning {
