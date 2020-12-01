@@ -27,3 +27,6 @@ Version 2.0 Outline:
 Stretch / Icebox Features:
     to be decided
 */
+
+console.log("Test");
+console.log($);
