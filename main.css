@@ -11,4 +11,15 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    flex-flow: row wrap;
+}
+
+h1, h2, ul {
+    padding: 20px;
+    margin: 20px;
+    
+}
+
+li {
+    margin: 20px;
 }
