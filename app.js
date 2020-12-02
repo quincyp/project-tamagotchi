@@ -32,7 +32,7 @@ console.log("Test");
 console.log($);
 
 
-// STEP ZERO: ADD PET OBJECT & ORGANIZED VARIABLES NOTE: can create class Pet and extend at later time
+// STEP ZERO: ADD PET OBJECT & ORGANIZED VARIABLES
 const $hungerBar = $("#bar--hunger");
 const $sleepBar = $("#bar--sleep");
 const $boredBar = $("#bar--bored");
@@ -87,12 +87,23 @@ const setAge = function setAge() {
     $age.text(`Age: ${pet.age}`);
 }
 
+// STEP THREE: IMPLEMENT TIME
+let time = 0;
+const updateTime = function updatTime() {
+    time++;
+    console.log(time);
+}
+
 
 /* *** CALLED FUNCTION / TESTING *** */
 $button.on("click", updateStat);
 $modal = $("#dialog-rounded");
-$modal[0].showModal();
+
+// TODO: ADD THIS LATER, TURNED MODAL OFF FOR TESTING UPDATED CODE
+// $modal[0].showModal(); 
+
 // document.getElementById('dialog-rounded').showModal();
 
 $confirmButton.on("click", setName);
 setAge();
+const timer = setInterval(updateTime, 1000);
