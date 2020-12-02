@@ -25,6 +25,27 @@
     <!-- Skeleton Container -->
     <div class="container">
 
+        <!-- Name Modal -->
+        <section>
+        <button type="button" class="nes-btn is-primary" onclick="document.getElementById('dialog-rounded').showModal();">
+            Show Name Modal
+        </button>
+        <dialog class="nes-dialog is-rounded" id="dialog-rounded">
+            <form method="dialog">
+            <h1 class="title">Start The Game By Naming Your Pet!</h1>
+            <!-- Name Input Field -->
+            <div class="nes-field">
+                <label for="name_field">What is your pet's name?</label>
+                <input type="text" id="name_field" class="nes-input">
+            </div>
+            <menu class="dialog-menu">
+                <!-- <button class="nes-btn">Cancel</button> -->
+                <button class="nes-btn is-primary">Confirm</button>
+            </menu>
+            </form>
+        </dialog>
+        </section>
+
         <div class="row">
             <h1 class="six columns" id="name">Name</h1>
             <h1 class="six columns" id="age">Age</h1>
@@ -39,9 +60,9 @@
             <!-- Hunger Bar-->
             <progress class="nes-progress is-success" value="10" max="100" id="bar--hunger"></progress>
             <!-- Sleep Bar -->
-            <progress class="nes-progress is-warning" value="10" max="100"></progress>
+            <progress class="nes-progress is-warning" value="10" max="100" id="bar--sleep"></progress>
             <!-- Bored Bar -->
-            <progress class="nes-progress is-error" value="10" max="100"></progress>
+            <progress class="nes-progress is-error" value="10" max="100" id="bar--bored"></progress>
         </div>
         <div id="pet--area">
             <!-- OctoCat Pet -->
@@ -50,8 +71,8 @@
     </div>
     <div class="row" id="button__group">
         <button type="button" class="nes-btn is-success" id="button--feed">Feed</button>
-        <button type="button" class="nes-btn is-warning">Put to bed</button>
-        <button type="button" class="nes-btn is-error">Play</button>
+        <button type="button" class="nes-btn is-warning" id="button--bed">Put to bed</button>
+        <button type="button" class="nes-btn is-error" id="button--play">Play</button>
     </div>
 </body>
 </html>
