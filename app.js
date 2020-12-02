@@ -44,14 +44,6 @@ const $boredBar = $("#bar--bored");
 
 const $button = $("button");
 
-// class Stat {
-//     constructor(bar, button) {
-//         this.bar = bar;
-//         this.button = button;
-//     }
-// }
-// const hunger = new  Stat ($hungerBar, $feedButton);
-
 const pet = {
     "name": "placeholder",
     "age": 0,
@@ -84,6 +76,3 @@ $button.on("click", updateStat);
 $modal = $("#dialog-rounded");
 $modal[0].showModal();
 // document.getElementById('dialog-rounded').showModal();
-// $feedButton.on("click", updateStat);
-// $playButton.on("click", test);
-// $bedButton.on("click", test);
