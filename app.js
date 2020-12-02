@@ -31,20 +31,32 @@ Stretch / Icebox Features:
 console.log("Test");
 console.log($);
 
-// STEP ONE: ADD BUTTON LISTENER
+
+// STEP ZERO: ADD PET OBJECT & ORGANIZED VARIABLES NOTE: can create class Pet and extend at later time
+const $hungerBar = $("#bar--hunger");
 const $feedButton = $("#button--feed");
+
+const pet = {
+    "name": "placeholder",
+    "age": 0,
+    "hunger": $hungerBar.val(),
+}
+
+// STEP ONE: ADD BUTTON LISTENER
 const test = function test(event) {
     console.log("test");
 }
 
-// const stat = 1;
 
-const $hungerBar = $("#bar--hunger");
 const updateStat = function updateStat(event) {
     console.log($hungerBar);
     $hungerBar.val($hungerBar.val() + 10);
 }
 
+
+
+
 /* *** CALLING SCRIPTS FOR TESTING *** */
 $feedButton.on("click", updateStat);
 // $playButton.on("click", test);
+// $sleepButton.on("click", test);
