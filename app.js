@@ -43,6 +43,7 @@ const $boredBar = $("#bar--bored");
 // const $playButton = $("#button--play");
 
 const $button = $("button");
+const $confirmButton = $(".nes-btn");
 
 const pet = {
     "name": "placeholder",
@@ -50,7 +51,7 @@ const pet = {
     "hunger": $hungerBar.val(),
 }
 
-// STEP ONE: ADD BUTTON LISTENER
+// STEP ONE: ADD BUTTON LISTENER/STAT UPDATER
 const test = function test(event) {
     console.log(this);
 }
@@ -68,7 +69,13 @@ const updateStat = function updateStat(event) {
     }
 }
 
-
+// STEP TWO: ADD NAME INPUT/MODAL HANDLER
+const setName = function setName() {
+    let $name = $("#name");
+    nameInput = $("#name_field").val();
+    $name.text(`Name: ${nameInput}`);
+    $("#button--name").hide();
+}
 
 
 /* *** CALLED FUNCTION / TESTING *** */
@@ -77,12 +84,5 @@ $modal = $("#dialog-rounded");
 $modal[0].showModal();
 // document.getElementById('dialog-rounded').showModal();
 
-const setName = function setName() {
-    let $name = $("#name");
-    nameInput = $("#name_field").val();
-    $name.text(`Name: ${nameInput}`);
-    $("#button--name").hide();
-}
 
-$confirmButton = $(".nes-btn");
 $confirmButton.on("click", setName);
