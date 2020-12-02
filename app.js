@@ -79,8 +79,11 @@ const updateStat = function updateStat(event) {
 
 
 
-/* *** CALLING SCRIPTS FOR TESTING *** */
+/* *** CALLED FUNCTION / TESTING *** */
 $button.on("click", updateStat);
+$modal = $("#dialog-rounded");
+$modal[0].showModal();
+// document.getElementById('dialog-rounded').showModal();
 // $feedButton.on("click", updateStat);
 // $playButton.on("click", test);
 // $bedButton.on("click", test);
