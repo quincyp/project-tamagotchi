@@ -49,6 +49,8 @@ const pet = {
     "name": "placeholder",
     "age": 0,
     "hunger": $hungerBar.val(),
+    "sleepiness": $sleepBar.val(),
+    "boredom": $boredBar.val(),
 }
 
 // STEP ONE: ADD BUTTON LISTENER/STAT UPDATER
@@ -61,19 +63,22 @@ const updateStat = function updateStat(event) {
     console.log(this.id);
     // console.log($feedButton.prop("id"));
     if(this.id === "button--feed"){
-        $hungerBar.val($hungerBar.val() + 10);
+        pet.hunger += 10;
+        $hungerBar.val(pet.hunger);
     } else if(this.id === "button--bed") {
-        $sleepBar.val($sleepBar.val() + 10);
+        pet.sleepiness += 10;
+        $sleepBar.val(pet.sleepiness);
     } else if (this.id === "button--play") {
-        $boredBar.val($boredBar.val() + 10);
+        pet.boredom += 10;
+        $boredBar.val(pet.boredom);
     }
 }
 
 // STEP TWO: ADD NAME INPUT/MODAL HANDLER
 const setName = function setName() {
-    let $name = $("#name");
-    nameInput = $("#name_field").val();
-    $name.text(`Name: ${nameInput}`);
+    const $name = $("#name");
+    pet.name = $("#name_field").val();
+    $name.text(`Name: ${pet.name}`);
     $("#button--name").hide();
 }
 
