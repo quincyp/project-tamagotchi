@@ -8,19 +8,20 @@ MVP Minimum Viable Product Outline:
         -start age at 0? 1?/
         - increase at X min
     Stats
-        -Hunger
-        -Sleepiness
-        -Boredom
-            -- start at 1
-                --- if stat = 10 -> die
-            -- increase stat per X min
+        -Hunger/
+        -Sleepiness/
+        -Boredom/
+            -- start at 50/
+                --- max stat 100/
+                --- if stat = 0 -> die/gameover
+            -- decrease stat per X min/
     Buttons
         - Feed [hunger] /
         - Turn off light [sleep] /
         - Play [bored] /
 
 Version 2.0 Outline:
-    Style the page [more than initial]
+    Style the page [more than initial]/
     Morph pet at certain age
         - morphed stat interactions?
     Animate live pet
@@ -96,7 +97,7 @@ const setName = function setName(event) {
     setAge();
     startTime();
 }
-
+//REVIEW: set age is working, but consider age++ instead
 const setAge = function setAge(age=0) {
     const $age = $("#age");
     pet.age = age;
@@ -110,7 +111,7 @@ const startTime = function startTime() {
         time++;
         console.log(time);
         if(time % 9 === 0) {
-            setAge(1);
+            setAge(1); //REVIEW: set age effected here
         }
         if(time % 3 === 0) {
             if(pet.hunger > 0) {
@@ -133,6 +134,9 @@ const startTime = function startTime() {
     }
     const timer = setInterval(updateTime, 1000);
 }
+
+// STEP FOUR: ADD ANIMATIONS/SOUNDS/MORPH EFFECTS
+
 
 
 /* *** CALLED FUNCTION / TESTING *** */
