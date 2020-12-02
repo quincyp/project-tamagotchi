@@ -97,8 +97,9 @@ const setName = function setName(event) {
     startTime();
 }
 
-const setAge = function setAge() {
+const setAge = function setAge(age=0) {
     const $age = $("#age");
+    pet.age = age;
     $age.text(`Age: ${pet.age}`);
 }
 
@@ -108,6 +109,9 @@ const startTime = function startTime() {
     const updateTime = function updatTime() {
         time++;
         console.log(time);
+        if(time % 9 === 0) {
+            setAge(1);
+        }
         if(time % 3 === 0) {
             if(pet.hunger > 0) {
                 pet.hunger -= 10;
