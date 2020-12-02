@@ -92,6 +92,20 @@ let time = 0;
 const updateTime = function updatTime() {
     time++;
     console.log(time);
+    if(time % 3 === 0) {
+        if(pet.hunger > 0) {
+            pet.hunger -= 10;
+            $hungerBar.val(pet.hunger);
+        }
+        if(pet.sleepiness > 0) {
+            pet.sleepiness -= 10;
+            $sleepBar.val(pet.sleepiness);
+        }
+        if(pet.boredom > 0) {
+            pet.boredom -= 10;
+            $boredBar.val(pet.boredom);
+        }
+    }
 }
 
 
