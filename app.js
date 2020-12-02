@@ -63,14 +63,20 @@ const updateStat = function updateStat(event) {
     console.log(this.id);
     // console.log($feedButton.prop("id"));
     if(this.id === "button--feed"){
-        pet.hunger += 10;
-        $hungerBar.val(pet.hunger);
+        if(pet.hunger <= 100) {
+            pet.hunger += 10;
+            $hungerBar.val(pet.hunger);
+        }
     } else if(this.id === "button--bed") {
-        pet.sleepiness += 10;
-        $sleepBar.val(pet.sleepiness);
+        if(pet.sleepiness <= 100) {
+            pet.sleepiness += 10;
+            $sleepBar.val(pet.sleepiness);
+        }
     } else if (this.id === "button--play") {
-        pet.boredom += 10;
-        $boredBar.val(pet.boredom);
+        if(pet.boredom <= 100) {
+            pet.boredom += 10;
+            $boredBar.val(pet.boredom);
+        }
     }
 }
 
