@@ -34,7 +34,12 @@ console.log($);
 
 // STEP ZERO: ADD PET OBJECT & ORGANIZED VARIABLES NOTE: can create class Pet and extend at later time
 const $hungerBar = $("#bar--hunger");
+const $sleepBar = $("#bar--sleep");
+const $boredBar = $("#bar--bored");
+
 const $feedButton = $("#button--feed");
+const $bedButton = $("#button--bed");
+const $playButton = $("#button--play");
 
 const pet = {
     "name": "placeholder",
@@ -58,5 +63,5 @@ const updateStat = function updateStat(event) {
 
 /* *** CALLING SCRIPTS FOR TESTING *** */
 $feedButton.on("click", updateStat);
-// $playButton.on("click", test);
-// $sleepButton.on("click", test);
+$playButton.on("click", test);
+$bedButton.on("click", test);
