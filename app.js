@@ -105,6 +105,10 @@ const updateTime = function updatTime() {
             pet.boredom -= 10;
             $boredBar.val(pet.boredom);
         }
+        if(pet.hunger === 0 || pet.sleepiness === 0 || pet.boredom === 0) {
+            clearInterval(timer);
+            console.log("Game Over");
+        }
     }
 }
 
