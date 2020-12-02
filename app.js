@@ -84,5 +84,4 @@ $modal = $("#dialog-rounded");
 $modal[0].showModal();
 // document.getElementById('dialog-rounded').showModal();
 
-
 $confirmButton.on("click", setName);
