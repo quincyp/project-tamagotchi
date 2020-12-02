@@ -76,3 +76,13 @@ $button.on("click", updateStat);
 $modal = $("#dialog-rounded");
 $modal[0].showModal();
 // document.getElementById('dialog-rounded').showModal();
+
+const setName = function setName() {
+    let $name = $("#name");
+    nameInput = $("#name_field").val();
+    $name.text(`Name: ${nameInput}`);
+    $("#button--name").hide();
+}
+
+$confirmButton = $(".nes-btn");
+$confirmButton.on("click", setName);
