@@ -1,6 +1,6 @@
 /*
 MVP Minimum Viable Product Outline:
-    Show pet/
+    Show pet /
     Name
         -Request a name
         -Display name
@@ -15,9 +15,9 @@ MVP Minimum Viable Product Outline:
                 --- if stat = 10 -> die
             -- increase stat per X min
     Buttons
-        - Feed [hunger]
-        - Turn off light [sleep]
-        - Play [bored]
+        - Feed [hunger] /
+        - Turn off light [sleep] /
+        - Play [bored] /
 
 Version 2.0 Outline:
     Style the page [more than initial]
@@ -37,9 +37,20 @@ const $hungerBar = $("#bar--hunger");
 const $sleepBar = $("#bar--sleep");
 const $boredBar = $("#bar--bored");
 
-const $feedButton = $("#button--feed");
-const $bedButton = $("#button--bed");
-const $playButton = $("#button--play");
+        // REVIEW: These buttons may not be necessary? Have selected all buttons/this button; only need id in updateStat if statement?
+// const $feedButton = $("#button--feed");
+// const $bedButton = $("#button--bed");
+// const $playButton = $("#button--play");
+
+const $button = $("button");
+
+// class Stat {
+//     constructor(bar, button) {
+//         this.bar = bar;
+//         this.button = button;
+//     }
+// }
+// const hunger = new  Stat ($hungerBar, $feedButton);
 
 const pet = {
     "name": "placeholder",
@@ -49,19 +60,27 @@ const pet = {
 
 // STEP ONE: ADD BUTTON LISTENER
 const test = function test(event) {
-    console.log("test");
+    console.log(this);
 }
 
 
 const updateStat = function updateStat(event) {
-    console.log($hungerBar);
-    $hungerBar.val($hungerBar.val() + 10);
+    console.log(this.id);
+    // console.log($feedButton.prop("id"));
+    if(this.id === "button--feed"){
+        $hungerBar.val($hungerBar.val() + 10);
+    } else if(this.id === "button--bed") {
+        $sleepBar.val($sleepBar.val() + 10);
+    } else if (this.id === "button--play") {
+        $boredBar.val($boredBar.val() + 10);
+    }
 }
 
 
 
 
 /* *** CALLING SCRIPTS FOR TESTING *** */
-$feedButton.on("click", updateStat);
-$playButton.on("click", test);
-$bedButton.on("click", test);
+$button.on("click", updateStat);
+// $feedButton.on("click", updateStat);
+// $playButton.on("click", test);
+// $bedButton.on("click", test);
