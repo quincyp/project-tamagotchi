@@ -43,7 +43,7 @@ const $boredBar = $("#bar--bored");
 // const $playButton = $("#button--play");
 
 const $button = $("button");
-const $confirmButton = $(".nes-btn");
+const $confirmButton = $("#button--confirm");
 
 const pet = {
     "name": "placeholder",
@@ -81,11 +81,20 @@ const updateStat = function updateStat(event) {
 }
 
 // STEP TWO: ADD NAME INPUT/MODAL HANDLER
-const setName = function setName() {
+const setName = function setName(event) {
+    event.stopPropagation();
+    console.log("confirmButton");
     const $name = $("#name");
     pet.name = $("#name_field").val().toUpperCase();
     $name.text(`Name: ${pet.name}`);
+
+    // STARTS GAME HERE AFTER MODAL
+        // - hides modal button
+        // - sets the age
+        // - starts the game timer
     $("#button--name").hide();
+    setAge();
+    startTime();
 }
 
 const setAge = function setAge() {
@@ -95,27 +104,30 @@ const setAge = function setAge() {
 
 // STEP THREE: IMPLEMENT TIME
 let time = 0;
-const updateTime = function updatTime() {
-    time++;
-    console.log(time);
-    if(time % 3 === 0) {
-        if(pet.hunger > 0) {
-            pet.hunger -= 10;
-            $hungerBar.val(pet.hunger);
-        }
-        if(pet.sleepiness > 0) {
-            pet.sleepiness -= 10;
-            $sleepBar.val(pet.sleepiness);
-        }
-        if(pet.boredom > 0) {
-            pet.boredom -= 10;
-            $boredBar.val(pet.boredom);
-        }
-        if(pet.hunger === 0 || pet.sleepiness === 0 || pet.boredom === 0) {
-            clearInterval(timer);
-            console.log("Game Over");
+const startTime = function startTime() {
+    const updateTime = function updatTime() {
+        time++;
+        console.log(time);
+        if(time % 3 === 0) {
+            if(pet.hunger > 0) {
+                pet.hunger -= 10;
+                $hungerBar.val(pet.hunger);
+            }
+            if(pet.sleepiness > 0) {
+                pet.sleepiness -= 10;
+                $sleepBar.val(pet.sleepiness);
+            }
+            if(pet.boredom > 0) {
+                pet.boredom -= 10;
+                $boredBar.val(pet.boredom);
+            }
+            if(pet.hunger === 0 || pet.sleepiness === 0 || pet.boredom === 0) {
+                clearInterval(timer);
+                console.log("Game Over");
+            }
         }
     }
+    const timer = setInterval(updateTime, 1000);
 }
 
 
@@ -124,10 +136,8 @@ $button.on("click", updateStat);
 $modal = $("#dialog-rounded");
 
 // TODO: ADD THIS LATER, TURNED MODAL OFF FOR TESTING UPDATED CODE
-// $modal[0].showModal(); 
+$modal[0].showModal(); 
 
 // document.getElementById('dialog-rounded').showModal();
 
 $confirmButton.on("click", setName);
-setAge();
-const timer = setInterval(updateTime, 1000);
