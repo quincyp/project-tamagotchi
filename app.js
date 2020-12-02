@@ -1,11 +1,11 @@
 /*
 MVP Minimum Viable Product Outline:
     Show pet /
-    Name
-        -Request a name
-        -Display name
+    Name/
+        -Request a name/
+        -Display name/
     Age
-        -start age at 0? 1?
+        -start age at 0? 1?/
         - increase at X min
     Stats
         -Hunger
@@ -77,9 +77,14 @@ const updateStat = function updateStat(event) {
 // STEP TWO: ADD NAME INPUT/MODAL HANDLER
 const setName = function setName() {
     const $name = $("#name");
-    pet.name = $("#name_field").val();
+    pet.name = $("#name_field").val().toUpperCase();
     $name.text(`Name: ${pet.name}`);
     $("#button--name").hide();
+}
+
+const setAge = function setAge() {
+    const $age = $("#age");
+    $age.text(`Age: ${pet.age}`);
 }
 
 
@@ -90,3 +95,4 @@ $modal[0].showModal();
 // document.getElementById('dialog-rounded').showModal();
 
 $confirmButton.on("click", setName);
+setAge();
