@@ -24,9 +24,32 @@ body {
 
 .evolve {
     /* FIXME: OPTIONAL FIX TRANSFORM DOES NOT WORK WELL WITH ANIMATE.CSS */
-    /* transform: scale(2.5); */
+    transform: scale(2.5);
+
     filter: saturate(25.2);
     transition: 1.5s linear;
+}
+
+.walking {
+    animation: walking 5s infinite;
+    animation-direction: alternate;
+  }
+
+@keyframes walking {
+    0%   {transform: translate(0,0);}
+    25%  { transform: translate(200%,0);}
+    50%  {transform: translate(0,0);}
+    75%  {transform: translate(-200%,0);}
+    100%  {transform: translate(0,0);}
+  }
+
+#evolve__effect {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    margin-top: -48px;
+    margin-left: -48px;
+    transform: scale(4);
 }
 
 /* container {
@@ -53,6 +76,13 @@ body {
 .nes-octocat {
     padding: 30px;
     margin: 130px;
+
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    /* half width/height (84px/90px) */
+    margin-left: -42px;
+    margin-top: -45px;
 }
 
 #button__group {
