@@ -13,7 +13,7 @@ MVP Minimum Viable Product Outline:
         -Boredom/
             -- start at 50/
                 --- max stat 100/
-                --- if stat = 0 -> die/gameover
+                --- if stat = 0 -> die/gameover/
             -- decrease stat per X min/
     Buttons
         - Feed [hunger] /
@@ -24,7 +24,7 @@ Version 2.0 Outline:
     Style the page [more than initial]/
     Morph pet at certain age
         - morphed stat interactions?
-    Animate live pet
+    Animate live pet/
 Stretch / Icebox Features:
     to be decided
 */
@@ -67,6 +67,7 @@ const updateStat = function updateStat(event) {
         if(pet.hunger <= 100) {
             pet.hunger += 10;
             $hungerBar.val(pet.hunger);
+            getAnimation($octocat, "rubberband");
             if(pet.hunger > 30) {
                 getAnimation($hungerBar, "remove");
             }
@@ -75,6 +76,7 @@ const updateStat = function updateStat(event) {
         if(pet.sleepiness <= 100) {
             pet.sleepiness += 10;
             $sleepBar.val(pet.sleepiness);
+            getAnimation($octocat, "rotate");
             if(pet.sleepiness > 30) {
                 getAnimation($sleepBar, "remove");
             }
@@ -83,6 +85,7 @@ const updateStat = function updateStat(event) {
         if(pet.boredom <= 100) {
             pet.boredom += 10;
             $boredBar.val(pet.boredom);
+            getAnimation($octocat, "tada");
             if(pet.boredom > 30) {
                 getAnimation($boredBar, "remove");
             }
@@ -162,7 +165,7 @@ $octocat = $("#octocat");
 
 const getAnimation = function getAnimation(object, selection) {
     if(selection === "fade") {
-        object.addClass("animate__animated animate__slower animate__fadeOutUp");
+        // object.addClass("animate__animated animate__slower animate__fadeOutUp");
     }
     if(selection === "flash") {
         object.addClass("animate__animated animate__slow animate__flash animate__infinite");
@@ -172,6 +175,21 @@ const getAnimation = function getAnimation(object, selection) {
     }
     if(selection === "tada") {
         object.addClass("animate__animated animate__tada");
+        object.on('animationend', () => {
+            object.removeClass("animate__animated animate__tada");
+        });
+    }
+    if(selection === "rotate") {
+        object.addClass("animate__animated animate__rotateInDownLeft");
+        object.on('animationend', () => {
+            object.removeClass("animate__animated animate__rotateInDownLeft");
+        });
+    }
+    if(selection === "rubberband") {
+        object.addClass("animate__animated animate__rubberBand");
+        object.on('animationend', () => {
+            object.removeClass("animate__animated animate__rubberBand");
+        });
     }
 }
 
