@@ -124,6 +124,7 @@ const startTime = function startTime() {
         console.log(time);
         if(time % 9 === 0) {
             setAge(1); //REVIEW: set age effected here
+            getAnimation($octocat, "evolve");
         }
         if(time % 3 === 0) {
             if(pet.hunger > 0) {
@@ -150,10 +151,10 @@ const startTime = function startTime() {
             if(pet.hunger === 0 || pet.sleepiness === 0 || pet.boredom === 0) {
                 clearInterval(timer);
                 console.log("Game Over");
-                getAnimation($octocat, "fade");
                 getAnimation($hungerBar, "remove");
                 getAnimation($sleepBar, "remove");
                 getAnimation($boredBar, "remove");
+                getAnimation($octocat, "fade");
             }
         }
     }
@@ -165,7 +166,11 @@ $octocat = $("#octocat");
 
 const getAnimation = function getAnimation(object, selection) {
     if(selection === "fade") {
-        // object.addClass("animate__animated animate__slower animate__fadeOutUp");
+        // ********ANCHOR: ADD/REMOVE THIS FOR TESTING CODE
+        object.addClass("animate__animated animate__slower animate__fadeOutUp");
+        object.on('animationend', () => {
+            object.hide();
+        });
     }
     if(selection === "flash") {
         object.addClass("animate__animated animate__slow animate__flash animate__infinite");
@@ -191,6 +196,12 @@ const getAnimation = function getAnimation(object, selection) {
             object.removeClass("animate__animated animate__rubberBand");
         });
     }
+    if(selection === "evolve") {
+        object.addClass("evolve animate__animated animate__heartBeat");
+        object.on('animationend', () => {
+            object.removeClass("animate__animated animate__heartBeat");
+        });
+    }
 }
 
 
@@ -198,7 +209,7 @@ const getAnimation = function getAnimation(object, selection) {
 $button.on("click", updateStat);
 $modal = $("#dialog-rounded");
 
-// TODO: ADD THIS LATER, TURNED MODAL OFF FOR TESTING UPDATED CODE
+// ********ANCHOR: ADD/REMOVE THIS FOR TESTING CODE
 $modal[0].showModal(); 
 
 // document.getElementById('dialog-rounded').showModal();
