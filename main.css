@@ -21,10 +21,13 @@ body {
     text-align: center;
     font-family: 'Press Start 2P', cursive;
 }
-
+:root {
+    --scale: 1;
+}
 .evolve {
     /* FIXME: OPTIONAL FIX TRANSFORM DOES NOT WORK WELL WITH ANIMATE.CSS */
-    transform: scale(2.5);
+    --scale: 2.5;
+    transform: scale(var(--scale));
 
     filter: saturate(25.2);
     transition: 1.5s linear;
@@ -36,14 +39,14 @@ body {
 }
 
 @keyframes walking {
-    0%   {transform: scale(2.5) translate(0,0);}
-    25%  { transform: scale(2.5) translate(200%,0);}
-    50%  {transform: scale(2.5) translate(0,0);}
-    75%  {transform: scale(2.5) translate(-200%,0);}
-    100%  {transform: scale(2.5) translate(0,0);}
+    0%   {transform: scale(var(--scale)) translate(0,0);}
+    25%  { transform: scale(var(--scale)) translate(200%,0);}
+    50%  {transform: scale(var(--scale)) translate(0,0);}
+    75%  {transform: scale(var(--scale)) translate(-200%,0);}
+    100%  {transform: scale(var(--scale)) translate(0,0);}
 }
 /* REVIEW: LOOK INTO USING CSS VARIABLES TO UPDATE SCALE ONLY WHEN .EVOLVE SHOWN */
-.evolve .animate__tada {
+.animate__tada {
 	-webkit-animation-name: tada;
 	animation-name: tada
 }
@@ -51,30 +54,96 @@ body {
 @keyframes tada {
 	0% {
 		-webkit-transform: scaleX(1);
-		transform: scaleX(1) scale(2.5)
+		transform: scaleX(1) scale(var(--scale))
 	}
 	10%,
 	20% {
 		-webkit-transform: scale3d(.9, .9, .9) rotate(-3deg);
-		transform: scale3d(.9, .9, .9) rotate(-3deg) scale(2.5)
+		transform: scale3d(.9, .9, .9) rotate(-3deg) scale(var(--scale))
 	}
 	30%,
 	50%,
 	70%,
 	90% {
 		-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate(3deg);
-		transform: scale3d(1.1, 1.1, 1.1) rotate(3deg) scale(2.5)
+		transform: scale3d(1.1, 1.1, 1.1) rotate(3deg) scale(var(--scale))
 	}
 	40%,
 	60%,
 	80% {
 		-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate(-3deg);
-		transform: scale3d(1.1, 1.1, 1.1) rotate(-3deg) scale(2.5)
+		transform: scale3d(1.1, 1.1, 1.1) rotate(-3deg) scale(var(--scale))
 	}
 	to {
 		-webkit-transform: scaleX(1);
-		transform: scaleX(1) scale(2.5)
+		transform: scaleX(1) scale(var(--scale))
 	}
+}
+
+@keyframes rubberBand {
+	0% {
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1)  scale(var(--scale))
+	}
+	30% {
+		-webkit-transform: scale3d(1.25, .75, 1);
+		transform: scale3d(1.25, .75, 1) scale(var(--scale))
+	}
+	40% {
+		-webkit-transform: scale3d(.75, 1.25, 1);
+		transform: scale3d(.75, 1.25, 1) scale(var(--scale))
+	}
+	50% {
+		-webkit-transform: scale3d(1.15, .85, 1);
+		transform: scale3d(1.15, .85, 1) scale(var(--scale))
+	}
+	65% {
+		-webkit-transform: scale3d(.95, 1.05, 1);
+		transform: scale3d(.95, 1.05, 1) scale(var(--scale))
+	}
+	75% {
+		-webkit-transform: scale3d(1.05, .95, 1);
+		transform: scale3d(1.05, .95, 1) scale(var(--scale))
+	}
+	to {
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1) scale(var(--scale))
+	}
+}
+
+.animate__rubberBand {
+	-webkit-animation-name: rubberBand;
+	animation-name: rubberBand
+}
+
+@keyframes swing {
+	20% {
+		-webkit-transform: rotate(15deg);
+		transform: rotate(15deg) scale(var(--scale))
+	}
+	40% {
+		-webkit-transform: rotate(-10deg);
+		transform: rotate(-10deg) scale(var(--scale))
+	}
+	60% {
+		-webkit-transform: rotate(5deg);
+		transform: rotate(5deg) scale(var(--scale))
+	}
+	80% {
+		-webkit-transform: rotate(-5deg);
+		transform: rotate(-5deg) scale(var(--scale))
+	}
+	to {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg) scale(var(--scale))
+	}
+}
+
+.animate__swing {
+	-webkit-transform-origin: top center;
+	transform-origin: top center;
+	-webkit-animation-name: swing;
+	animation-name: swing
 }
 
 #evolve__effect {
