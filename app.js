@@ -61,14 +61,14 @@ const test = function test(event) {
 
 
 const updateStat = function updateStat(event) {
-    console.log(this.id);
+    // console.log(this.id);
     // console.log($feedButton.prop("id"));
     if(this.id === "button--feed"){
         if(pet.hunger <= 100) {
             pet.hunger += 10;
             $hungerBar.val(pet.hunger);
             if(pet.hunger > 30) {
-                $hungerBar.removeClass("animate__animated animate__slow animate__flash animate__infinite");
+                getAnimation($hungerBar, "remove");
             }
         }
     } else if(this.id === "button--bed") {
@@ -76,7 +76,7 @@ const updateStat = function updateStat(event) {
             pet.sleepiness += 10;
             $sleepBar.val(pet.sleepiness);
             if(pet.sleepiness > 30) {
-                $sleepBar.removeClass("animate__animated animate__slow animate__flash animate__infinite");
+                getAnimation($sleepBar, "remove");
             }
         }
     } else if (this.id === "button--play") {
@@ -84,7 +84,7 @@ const updateStat = function updateStat(event) {
             pet.boredom += 10;
             $boredBar.val(pet.boredom);
             if(pet.boredom > 30) {
-                $boredBar.removeClass("animate__animated animate__slow animate__flash animate__infinite");
+                getAnimation($boredBar, "remove");
             }
         }
     }
@@ -127,26 +127,30 @@ const startTime = function startTime() {
                 pet.hunger -= 10;
                 $hungerBar.val(pet.hunger);
                 if(pet.hunger <= 30) {
-                    $hungerBar.addClass("animate__animated animate__slow animate__flash animate__infinite");
+                    getAnimation($hungerBar, "flash");
                 }
             }
             if(pet.sleepiness > 0) {
                 pet.sleepiness -= 10;
                 $sleepBar.val(pet.sleepiness);
                 if(pet.sleepiness <= 30) {
-                    $sleepBar.addClass("animate__animated animate__slow animate__flash animate__infinite");
+                    getAnimation($sleepBar, "flash");
                 }
             }
             if(pet.boredom > 0) {
                 pet.boredom -= 10;
                 $boredBar.val(pet.boredom);
                 if(pet.boredom <= 30) {
-                    $boredBar.addClass("animate__animated animate__slow animate__flash animate__infinite");
+                    getAnimation($boredBar, "flash");
                 }
             }
             if(pet.hunger === 0 || pet.sleepiness === 0 || pet.boredom === 0) {
                 clearInterval(timer);
                 console.log("Game Over");
+                getAnimation($octocat, "fade");
+                getAnimation($hungerBar, "remove");
+                getAnimation($sleepBar, "remove");
+                getAnimation($boredBar, "remove");
             }
         }
     }
@@ -154,9 +158,22 @@ const startTime = function startTime() {
 }
 
 // STEP FOUR: ADD ANIMATIONS/SOUNDS/MORPH EFFECTS
-$octocat = $("#octocat"); 
-$octocat.on("click", console.log("clickedOcto")); //FIXME: OCTOCAT APPEARS TO BE SLECTED, BUT UNABLE TO INTERACT?
-$octocat.addClass("animate__animated animate__fadeOutUp");
+$octocat = $("#octocat");
+
+const getAnimation = function getAnimation(object, selection) {
+    if(selection === "fade") {
+        object.addClass("animate__animated animate__slower animate__fadeOutUp");
+    }
+    if(selection === "flash") {
+        object.addClass("animate__animated animate__slow animate__flash animate__infinite");
+    }
+    if(selection === "remove") {
+        object.removeClass("animate__animated");
+    }
+    if(selection === "tada") {
+        object.addClass("animate__animated animate__tada");
+    }
+}
 
 
 /* *** CALLED FUNCTION / TESTING *** */
@@ -164,7 +181,7 @@ $button.on("click", updateStat);
 $modal = $("#dialog-rounded");
 
 // TODO: ADD THIS LATER, TURNED MODAL OFF FOR TESTING UPDATED CODE
-// $modal[0].showModal(); 
+$modal[0].showModal(); 
 
 // document.getElementById('dialog-rounded').showModal();
 
