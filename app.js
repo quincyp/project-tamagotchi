@@ -210,7 +210,7 @@ $button.on("click", updateStat);
 $modal = $("#dialog-rounded");
 
 // ********ANCHOR: ADD/REMOVE THIS FOR TESTING CODE
-$modal[0].showModal(); 
+// $modal[0].showModal(); 
 
 // document.getElementById('dialog-rounded').showModal();
 
