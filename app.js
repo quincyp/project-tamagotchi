@@ -132,6 +132,7 @@ const startTime = function startTime() {
                 $hungerBar.val(pet.hunger);
                 if(pet.hunger <= 30) {
                     getAnimation($hungerBar, "flash");
+                    $octocat.addClass("walking");
                 }
             }
             if(pet.sleepiness > 0) {
@@ -139,6 +140,7 @@ const startTime = function startTime() {
                 $sleepBar.val(pet.sleepiness);
                 if(pet.sleepiness <= 30) {
                     getAnimation($sleepBar, "flash");
+                    $octocat.addClass("walking");
                 }
             }
             if(pet.boredom > 0) {
@@ -146,6 +148,7 @@ const startTime = function startTime() {
                 $boredBar.val(pet.boredom);
                 if(pet.boredom <= 30) {
                     getAnimation($boredBar, "flash");
+                    $octocat.addClass("walking");
                 }
             }
             if(pet.hunger === 0 || pet.sleepiness === 0 || pet.boredom === 0) {
@@ -167,6 +170,7 @@ $octocat = $("#octocat");
 const getAnimation = function getAnimation(object, selection) {
     if(selection === "fade") {
         // ********ANCHOR: ADD/REMOVE THIS FOR TESTING CODE
+        $octocat.removeClass("walking");
         object.addClass("animate__animated animate__slower animate__fadeOutUp");
         object.on('animationend', () => {
             object.hide();
@@ -179,24 +183,28 @@ const getAnimation = function getAnimation(object, selection) {
         object.removeClass("animate__animated");
     }
     if(selection === "tada") {
+        object.removeClass("walking");
         object.addClass("animate__animated animate__tada");
         object.on('animationend', () => {
             object.removeClass("animate__animated animate__tada");
         });
     }
     if(selection === "swing") {
+        object.removeClass("walking");
         object.addClass("animate__animated animate__swing");
         object.on('animationend', () => {
             object.removeClass("animate__animated animate__swing");
         });
     }
     if(selection === "rubberband") {
+        object.removeClass("walking");
         object.addClass("animate__animated animate__rubberBand");
         object.on('animationend', () => {
             object.removeClass("animate__animated animate__rubberBand");
         });
     }
     if(selection === "evolve") {
+        object.removeClass("walking");
         object.addClass("evolve animate__animated animate__heartBeat");
         object.on('animationend', () => {
             object.removeClass("animate__animated animate__heartBeat");
