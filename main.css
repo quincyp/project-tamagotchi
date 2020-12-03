@@ -19,6 +19,7 @@ body {
     flex-flow: row wrap;
     flex-direction: column;
     text-align: center;
+    font-family: 'Press Start 2P', cursive;
 }
 
 /* container {
@@ -62,7 +63,9 @@ body {
 /* .nes-btn .is-warning {
     color: white;
 } */
-
+h1 {
+    font-size: 28px;
+}
 h3 {
     font-size: 22px;
 }
