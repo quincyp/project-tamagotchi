@@ -154,7 +154,9 @@ const startTime = function startTime() {
 }
 
 // STEP FOUR: ADD ANIMATIONS/SOUNDS/MORPH EFFECTS
-
+$octocat = $("#octocat"); 
+$octocat.on("click", console.log("clickedOcto")); //FIXME: OCTOCAT APPEARS TO BE SLECTED, BUT UNABLE TO INTERACT?
+$octocat.addClass("animate__animated animate__fadeOutUp");
 
 
 /* *** CALLED FUNCTION / TESTING *** */
@@ -162,7 +164,7 @@ $button.on("click", updateStat);
 $modal = $("#dialog-rounded");
 
 // TODO: ADD THIS LATER, TURNED MODAL OFF FOR TESTING UPDATED CODE
-$modal[0].showModal(); 
+// $modal[0].showModal(); 
 
 // document.getElementById('dialog-rounded').showModal();
 
