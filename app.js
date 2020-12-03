@@ -52,6 +52,7 @@ const pet = {
     "hunger": $hungerBar.val(),
     "sleepiness": $sleepBar.val(),
     "boredom": $boredBar.val(),
+    "scale": 1,
 }
 
 // STEP ONE: ADD BUTTON LISTENER/STAT UPDATER
@@ -110,9 +111,9 @@ const setName = function setName(event) {
     startTime();
 }
 //REVIEW: set age is working, but consider age++ instead
-const setAge = function setAge(age=0) {
+const setAge = function setAge() {
     const $age = $("#age");
-    pet.age = age;
+    pet.age++;
     $age.text(`Age: ${pet.age}`);
 }
 
@@ -206,6 +207,10 @@ const getAnimation = function getAnimation(object, selection) {
     if(selection === "evolve") {
         object.removeClass("walking");
         object.addClass("evolve animate__animated animate__heartBeat");
+        let element = $(".evolve");
+        pet.scale += 0.5;
+        console.log(pet.scale);
+        element[0].style.setProperty('--scale', pet.scale);
         object.on('animationend', () => {
             object.removeClass("animate__animated animate__heartBeat");
         });
