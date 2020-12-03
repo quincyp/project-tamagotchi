@@ -76,7 +76,7 @@ const updateStat = function updateStat(event) {
         if(pet.sleepiness <= 100) {
             pet.sleepiness += 10;
             $sleepBar.val(pet.sleepiness);
-            getAnimation($octocat, "rotate");
+            getAnimation($octocat, "swing");
             if(pet.sleepiness > 30) {
                 getAnimation($sleepBar, "remove");
             }
@@ -184,10 +184,10 @@ const getAnimation = function getAnimation(object, selection) {
             object.removeClass("animate__animated animate__tada");
         });
     }
-    if(selection === "rotate") {
-        object.addClass("animate__animated animate__rotateInDownLeft");
+    if(selection === "swing") {
+        object.addClass("animate__animated animate__swing");
         object.on('animationend', () => {
-            object.removeClass("animate__animated animate__rotateInDownLeft");
+            object.removeClass("animate__animated animate__swing");
         });
     }
     if(selection === "rubberband") {
