@@ -67,16 +67,25 @@ const updateStat = function updateStat(event) {
         if(pet.hunger <= 100) {
             pet.hunger += 10;
             $hungerBar.val(pet.hunger);
+            if(pet.hunger > 30) {
+                $hungerBar.removeClass("animate__animated animate__slow animate__flash animate__infinite");
+            }
         }
     } else if(this.id === "button--bed") {
         if(pet.sleepiness <= 100) {
             pet.sleepiness += 10;
             $sleepBar.val(pet.sleepiness);
+            if(pet.sleepiness > 30) {
+                $sleepBar.removeClass("animate__animated animate__slow animate__flash animate__infinite");
+            }
         }
     } else if (this.id === "button--play") {
         if(pet.boredom <= 100) {
             pet.boredom += 10;
             $boredBar.val(pet.boredom);
+            if(pet.boredom > 30) {
+                $boredBar.removeClass("animate__animated animate__slow animate__flash animate__infinite");
+            }
         }
     }
 }
@@ -117,14 +126,23 @@ const startTime = function startTime() {
             if(pet.hunger > 0) {
                 pet.hunger -= 10;
                 $hungerBar.val(pet.hunger);
+                if(pet.hunger <= 30) {
+                    $hungerBar.addClass("animate__animated animate__slow animate__flash animate__infinite");
+                }
             }
             if(pet.sleepiness > 0) {
                 pet.sleepiness -= 10;
                 $sleepBar.val(pet.sleepiness);
+                if(pet.sleepiness <= 30) {
+                    $sleepBar.addClass("animate__animated animate__slow animate__flash animate__infinite");
+                }
             }
             if(pet.boredom > 0) {
                 pet.boredom -= 10;
                 $boredBar.val(pet.boredom);
+                if(pet.boredom <= 30) {
+                    $boredBar.addClass("animate__animated animate__slow animate__flash animate__infinite");
+                }
             }
             if(pet.hunger === 0 || pet.sleepiness === 0 || pet.boredom === 0) {
                 clearInterval(timer);
