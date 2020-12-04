@@ -35,7 +35,7 @@ body {
 
 /* Walking Animation */
 .walking {
-    animation: walking 2s 2;
+    animation: walking 2s 5;
     animation-direction: alternate;
 }
 
