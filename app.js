@@ -53,6 +53,7 @@ const pet = {
     "sleepiness": $sleepBar.val(),
     "boredom": $boredBar.val(),
     "scale": 1,
+    "bright": 1,
 }
 
 // STEP ONE: ADD BUTTON LISTENER/STAT UPDATER
@@ -155,6 +156,7 @@ const startTime = function startTime() {
             if(pet.hunger === 0 || pet.sleepiness === 0 || pet.boredom === 0) {
                 clearInterval(timer);
                 console.log("Game Over");
+                setTimeout(function() {$endModal[0].showModal();}, 3300);
                 getAnimation($hungerBar, "remove");
                 getAnimation($sleepBar, "remove");
                 getAnimation($boredBar, "remove");
@@ -209,8 +211,10 @@ const getAnimation = function getAnimation(object, selection) {
         object.addClass("evolve animate__animated animate__heartBeat");
         let element = $(".evolve");
         pet.scale += 0.5;
+        pet.bright += 0.2;
         console.log(pet.scale);
         element[0].style.setProperty('--scale', pet.scale);
+        element[0].style.setProperty('--bright', pet.bright);
         object.on('animationend', () => {
             object.removeClass("animate__animated animate__heartBeat");
         });
@@ -220,11 +224,10 @@ const getAnimation = function getAnimation(object, selection) {
 
 /* *** CALLED FUNCTION / TESTING *** */
 $button.on("click", updateStat);
-$modal = $("#dialog-rounded");
+$startModal = $("#dialog-rounded");
+$endModal = $("#dialog-rounded2");
 
 // ********ANCHOR: ADD/REMOVE THIS FOR TESTING CODE
-// $modal[0].showModal(); 
-
-// document.getElementById('dialog-rounded').showModal();
-
+// $startModal[0].showModal(); 
+// $endModal[0].showModal(); 
 $confirmButton.on("click", setName);
