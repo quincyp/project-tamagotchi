@@ -95,22 +95,25 @@ const updateStat = function updateStat(event) {
 }
 
 // STEP TWO: ADD NAME INPUT/MODAL HANDLER
-const setName = function setName(event) {
+const startGame = function startGame(event) {
     event.stopPropagation();
     console.log("confirmButton");
-    const $name = $("#name");
-    pet.name = $("#name_field").val().toUpperCase();
-    $name.text(`Name: ${pet.name}`);
-
-    // STARTS GAME HERE AFTER MODAL
-        // - hides modal button
-        // - sets the age
-        // - starts the game timer
-        // - starts game music
-    $("#button--name").hide();
-    setAge();
-    startTime();
-    getSound("startGame");
+    if($("input").val()) {
+        console.log("Has value)");
+        const $name = $("#name");
+        pet.name = $("#name_field").val().toUpperCase();
+        $name.text(`Name: ${pet.name}`);
+    
+        // STARTS GAME HERE AFTER MODAL
+            // - hides modal button
+            // - sets the age
+            // - starts the game timer
+            // - starts game music
+        $("#button--name").hide();
+        setAge();
+        startTime();
+        getSound("startGame");
+    }
 }
 const setAge = function setAge() {
     const $age = $("#age");
@@ -251,5 +254,5 @@ $endModal = $("#dialog-rounded2");
 // ********ANCHOR: ADD/REMOVE THIS FOR TESTING CODE
 $startModal[0].showModal(); 
 // $endModal[0].showModal(); 
-$confirmButton.on("click", setName);
-
+$confirmButton.on("click", startGame);
+// $("input").prop('required',true);
