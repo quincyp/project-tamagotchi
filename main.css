@@ -13,7 +13,6 @@ body {
     color: whitesmoke;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     min-height: 100vh;
     min-width: 100vw;
     flex-flow: row wrap;
@@ -21,6 +20,8 @@ body {
     text-align: center;
     font-family: 'Press Start 2P', cursive;
 }
+
+/* Root default scale, later used when evolving */
 :root {
     --scale: 1;
 }
@@ -32,6 +33,7 @@ body {
     transition: 1.5s linear;
 }
 
+/* Walking Animation */
 .walking {
     animation: walking 2s 1;
     animation-direction: alternate;
@@ -44,6 +46,8 @@ body {
     75%  {transform: scale(var(--scale)) translate(-200%,0);}
     100%  {transform: scale(var(--scale)) translate(0,0);}
 }
+
+/* Tada animation */
 .animate__tada {
 	-webkit-animation-name: tada;
 	animation-name: tada
@@ -78,6 +82,8 @@ body {
 	}
 }
 
+
+/* Rubberband Animation */
 @keyframes rubberBand {
 	0% {
 		-webkit-transform: scaleX(1);
@@ -114,6 +120,7 @@ body {
 	animation-name: rubberBand
 }
 
+/* Swing Animation */
 @keyframes swing {
 	20% {
 		-webkit-transform: rotate(15deg);
@@ -153,10 +160,6 @@ body {
     transform: scale(4);
 }
 
-/* container {
-    min-width: 90vw;
-} */
-
 .nes-dialog {
     width: 94%;
     height: 94%;
@@ -181,7 +184,7 @@ body {
     position: fixed;
     top: 55%;
     left: 50%;
-    /* half width/height (84px/90px) */
+    /* half width/height (84px/90px) == 42px/45px */
     margin-left: -42px;
     margin-top: -45px;
 }
@@ -198,23 +201,9 @@ body {
     margin: 20px;
 }
 
-/* .nes-btn .is-warning {
-    color: white;
-} */
 h1 {
     font-size: 28px;
 }
 h3 {
     font-size: 22px;
 }
-
-/* 
-h1, h2, ul {
-    padding: 20px;
-    margin: 20px;
-    
-}
-
-li {
-    margin: 20px;
-} */

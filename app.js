@@ -6,7 +6,7 @@ MVP Minimum Viable Product Outline:
         -Display name/
     Age
         -start age at 0? 1?/
-        - increase at X min
+        - increase at X min/
     Stats
         -Hunger/
         -Sleepiness/
@@ -26,7 +26,9 @@ Version 2.0 Outline:
         - morphed stat interactions?
     Animate live pet/
 Stretch / Icebox Features:
-    to be decided
+    Add button click sounds/
+    Add game music/
+    add game over music/
 */
 
 // STEP ZERO: ADD PET OBJECT & ORGANIZED VARIABLES
@@ -61,7 +63,7 @@ const test = function test(event) {
 const updateStat = function updateStat(event) {
     // console.log(this.id);
     // console.log($feedButton.prop("id"));
-    playSounds("button");
+    getSound("button");
     if(this.id === "button--feed"){
         if(pet.hunger <= 100) {
             pet.hunger += 10;
@@ -104,10 +106,11 @@ const setName = function setName(event) {
         // - hides modal button
         // - sets the age
         // - starts the game timer
+        // - starts game music
     $("#button--name").hide();
     setAge();
     startTime();
-    playSounds("confirmButton");
+    getSound("startGame");
 }
 const setAge = function setAge() {
     const $age = $("#age");
@@ -153,7 +156,7 @@ const startTime = function startTime() {
             if(pet.hunger === 0 || pet.sleepiness === 0 || pet.boredom === 0) {
                 clearInterval(timer);
                 console.log("Game Over");
-                playSounds("endGame");
+                getSound("endGame");
                 setTimeout(function() {$endModal[0].showModal();}, 3300);
                 getAnimation($hungerBar, "remove");
                 getAnimation($sleepBar, "remove");
@@ -218,15 +221,15 @@ const getAnimation = function getAnimation(object, selection) {
     }
 }
 
-
-const playSounds = function playSound(element) {
+// BONUS STEP: ADDING BUTTON MUSIC AND PLAY/GAME OVER MUSIC
+const getSound = function getSound(element) {
     const sound = $("#audio");
     const $audio_bg = $("#audio_bg");
     const $audio_end = $("#audio_end");
     if(element === "button") {
         sound[0].play();
     }
-    if(element === "confirmButton") {
+    if(element === "startGame") {
         $audio_bg[0].play();
     }
     if(element === "endGame") {

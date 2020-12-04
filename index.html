@@ -30,7 +30,7 @@
     <!-- Skeleton Container -->
     <div class="container">
 
-        <!-- Name Modal -->
+        <!-- Name & Game Over Modal Section -->
         <section>
         <button type="button" class="nes-btn is-primary" id="button--name" onclick="document.getElementById('dialog-rounded').showModal();">
             Show Name Modal
@@ -44,7 +44,6 @@
                 <input type="text" id="name_field" class="nes-input">
             </div>
             <menu class="dialog-menu">
-                <!-- <button class="nes-btn">Cancel</button> -->
                 <button class="nes-btn is-primary" id="button--confirm">Confirm</button>
             </menu>
             </form>
@@ -61,14 +60,15 @@
             </menu>
             </form>
         </dialog>
-
         </section>
 
+        <!-- Name/Age Row -->
         <div class="row">
             <span><h1 class="six columns" id="name">Name</h1></span>
             <h1 class="six columns" id="age">Age</h1>
         </div>
 
+        <!-- Stats Headings -->
         <div class="row">
             <h3 class="four columns">Hunger</h3>
             <h3 class="four columns">Sleepiness</h3>
@@ -89,15 +89,18 @@
         </div>
     </div>
     <div class="row" id="button__group">
+        <!-- Feed Button -->
         <button type="button" class="nes-btn is-success" id="button--feed">Feed</button>
+        <!-- Sleep Button -->
         <button type="button" class="nes-btn is-warning" id="button--bed">Put to bed</button>
+        <!-- Play Button -->
         <button type="button" class="nes-btn is-error" id="button--play">Play</button>
     </div>
 
+    <!-- Game Sounds -->
     <audio id="audio" src="./sounds/bubble.mp3" autostart="false" ></audio>
     <audio id="audio_bg" src="./sounds/Poco-Loco.wav" loop autostart="false"></audio>
     <audio id="audio_end" src="./sounds/Sad.wav" loop autostart="false"></audio>
 
-    <!-- <audio src="./sounds/Poco-Loco.wav" loop autoplay></audio> -->
 </body>
 </html>
