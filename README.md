@@ -22,10 +22,17 @@ Peter Parfer said:
 
 
 
-## Wireframe
-The concept of this wireframe is to have the game show  all hunger / sleepiness / boredom stats on display at all times for the user to accurately play the game. All the corresponding eat / sleep / play buttons are also available to interact with the pet and play the game.
-![Wireframe](./wireframe_01.png)
+## [Wireframe](https://www.figma.com/proto/xqAUigx0venGkUbjyyQKOc/Project-Tamagotchi?node-id=23%3A75&scaling=min-zoom)
+
+The concept of this [wireframe](https://www.figma.com/proto/xqAUigx0venGkUbjyyQKOc/Project-Tamagotchi?node-id=23%3A75&scaling=min-zoom) is to make the game as clear as possible to the user. When starting the game there is only one option of entering the name. 
+
+After entering the name the main game screen will show show  all hunger / sleepiness / boredom stats on display at all times for the user to accurately play the game. All the corresponding eat / sleep / play buttons are also available to interact with the pet and play the game.
+
+Lastly when any of the key stats reach 0 the pet will die and the user will be shown the end game screen.
+
+From start to finish the user should have no issue of getting lost in the game.
+![Wireframe](./images/wireframe_all.png)
 
 <html>
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FxqAUigx0venGkUbjyyQKOc%2FProject-Tamagotchi%3Fnode-id%3D0%253A1" allowfullscreen></iframe>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="728" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FxqAUigx0venGkUbjyyQKOc%2FProject-Tamagotchi%3Fnode-id%3D23%253A75%26scaling%3Dmin-zoom" fullscreen></iframe>
 </html>
