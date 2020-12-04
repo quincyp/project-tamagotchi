@@ -22,7 +22,7 @@ MVP Minimum Viable Product Outline:
 
 Version 2.0 Outline:
     Style the page [more than initial]/
-    Morph pet at certain age
+    Morph pet at certain age/
         - morphed stat interactions?
     Animate live pet/
 Stretch / Icebox Features:
@@ -111,7 +111,6 @@ const setName = function setName(event) {
     setAge();
     startTime();
 }
-//REVIEW: set age is working, but consider age++ instead
 const setAge = function setAge() {
     const $age = $("#age");
     pet.age++;
@@ -125,7 +124,7 @@ const startTime = function startTime() {
         time++;
         console.log(time);
         if(time % 9 === 0) {
-            setAge(1); //REVIEW: set age effected here
+            setAge();
             getAnimation($octocat, "evolve");
         }
         if(time % 3 === 0) {
@@ -172,7 +171,7 @@ $octocat = $("#octocat");
 
 const getAnimation = function getAnimation(object, selection) {
     if(selection === "fade") {
-        // ********ANCHOR: ADD/REMOVE THIS FOR TESTING CODE
+        // ********ANCHOR: ADD/REMOVE THIS FADE FOR TESTING CODE
         $octocat.removeClass("walking");
         object.addClass("animate__animated animate__slower animate__fadeOutUp");
         object.on('animationend', () => {
@@ -211,8 +210,7 @@ const getAnimation = function getAnimation(object, selection) {
         object.addClass("evolve animate__animated animate__heartBeat");
         let element = $(".evolve");
         pet.scale += 0.5;
-        pet.bright += 0.2;
-        console.log(pet.scale);
+        pet.bright += 0.8;
         element[0].style.setProperty('--scale', pet.scale);
         element[0].style.setProperty('--bright', pet.bright);
         object.on('animationend', () => {
@@ -228,6 +226,6 @@ $startModal = $("#dialog-rounded");
 $endModal = $("#dialog-rounded2");
 
 // ********ANCHOR: ADD/REMOVE THIS FOR TESTING CODE
-// $startModal[0].showModal(); 
+$startModal[0].showModal(); 
 // $endModal[0].showModal(); 
 $confirmButton.on("click", setName);

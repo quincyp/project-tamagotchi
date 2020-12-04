@@ -25,7 +25,6 @@ body {
     --scale: 1;
 }
 .evolve {
-    /* FIXME: OPTIONAL FIX TRANSFORM DOES NOT WORK WELL WITH ANIMATE.CSS */
     --scale: 2.5;
     --bright: 1.2;
     transform: scale(var(--scale));
@@ -45,7 +44,6 @@ body {
     75%  {transform: scale(var(--scale)) translate(-200%,0);}
     100%  {transform: scale(var(--scale)) translate(0,0);}
 }
-/* REVIEW: LOOK INTO USING CSS VARIABLES TO UPDATE SCALE ONLY WHEN .EVOLVE SHOWN */
 .animate__tada {
 	-webkit-animation-name: tada;
 	animation-name: tada
