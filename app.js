@@ -29,10 +29,6 @@ Stretch / Icebox Features:
     to be decided
 */
 
-console.log("Test");
-console.log($);
-
-
 // STEP ZERO: ADD PET OBJECT & ORGANIZED VARIABLES
 const $hungerBar = $("#bar--hunger");
 const $sleepBar = $("#bar--sleep");
@@ -65,6 +61,7 @@ const test = function test(event) {
 const updateStat = function updateStat(event) {
     // console.log(this.id);
     // console.log($feedButton.prop("id"));
+    playSounds("button");
     if(this.id === "button--feed"){
         if(pet.hunger <= 100) {
             pet.hunger += 10;
@@ -110,6 +107,7 @@ const setName = function setName(event) {
     $("#button--name").hide();
     setAge();
     startTime();
+    playSounds("confirmButton");
 }
 const setAge = function setAge() {
     const $age = $("#age");
@@ -155,6 +153,7 @@ const startTime = function startTime() {
             if(pet.hunger === 0 || pet.sleepiness === 0 || pet.boredom === 0) {
                 clearInterval(timer);
                 console.log("Game Over");
+                playSounds("endGame");
                 setTimeout(function() {$endModal[0].showModal();}, 3300);
                 getAnimation($hungerBar, "remove");
                 getAnimation($sleepBar, "remove");
@@ -220,6 +219,22 @@ const getAnimation = function getAnimation(object, selection) {
 }
 
 
+const playSounds = function playSound(element) {
+    const sound = $("#audio");
+    const $audio_bg = $("#audio_bg");
+    const $audio_end = $("#audio_end");
+    if(element === "button") {
+        sound[0].play();
+    }
+    if(element === "confirmButton") {
+        $audio_bg[0].play();
+    }
+    if(element === "endGame") {
+        $audio_bg[0].pause();
+        $audio_end[0].play();
+    }
+}
+
 /* *** CALLED FUNCTION / TESTING *** */
 $button.on("click", updateStat);
 $startModal = $("#dialog-rounded");
@@ -229,3 +244,4 @@ $endModal = $("#dialog-rounded2");
 $startModal[0].showModal(); 
 // $endModal[0].showModal(); 
 $confirmButton.on("click", setName);
+
