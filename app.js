@@ -157,7 +157,7 @@ const startTime = function startTime() {
                 clearInterval(timer);
                 console.log("Game Over");
                 getSound("endGame");
-                setTimeout(function() {$endModal[0].showModal();}, 3300);
+                setTimeout(function() {$endModal[0].showModal();}, 2005);
                 getAnimation($hungerBar, "remove");
                 getAnimation($sleepBar, "remove");
                 getAnimation($boredBar, "remove");
@@ -208,6 +208,7 @@ const getAnimation = function getAnimation(object, selection) {
         });
     }
     if(selection === "evolve") {
+        getSound("evolve");
         object.removeClass("walking");
         object.addClass("evolve animate__animated animate__heartBeat");
         let element = $(".evolve");
@@ -223,11 +224,15 @@ const getAnimation = function getAnimation(object, selection) {
 
 // BONUS STEP: ADDING BUTTON MUSIC AND PLAY/GAME OVER MUSIC
 const getSound = function getSound(element) {
-    const sound = $("#audio");
+    const $buttonSound = $("#audio");
     const $audio_bg = $("#audio_bg");
     const $audio_end = $("#audio_end");
+    const $powerup = $("#powerup");
     if(element === "button") {
-        sound[0].play();
+        $buttonSound[0].play();
+    }
+    if(element === "evolve") {
+        $powerup[0].play();
     }
     if(element === "startGame") {
         $audio_bg[0].play();
