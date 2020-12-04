@@ -203,7 +203,12 @@ body {
 
 h1 {
     font-size: 28px;
+    margin: 20px 0;
 }
 h3 {
     font-size: 22px;
+}
+
+label {
+    margin: 20px;
 }
