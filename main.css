@@ -33,7 +33,7 @@ body {
 }
 
 .walking {
-    animation: walking 2s infinite;
+    animation: walking 2s 1;
     animation-direction: alternate;
 }
 
