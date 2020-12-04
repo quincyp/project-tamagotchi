@@ -27,9 +27,9 @@ body {
 .evolve {
     /* FIXME: OPTIONAL FIX TRANSFORM DOES NOT WORK WELL WITH ANIMATE.CSS */
     --scale: 2.5;
+    --bright: 1.2;
     transform: scale(var(--scale));
-
-    filter: saturate(25.2);
+    filter: saturate(25) brightness(var(--bright));
     transition: 1.5s linear;
 }
 
